@@ -29,7 +29,7 @@ class LoanProcess(APIView):
         LoanObjQuerySet = Loan.objects.all()
         serializer = LoanSerializer(LoanObjQuerySet, many=True)
         if serializer.data:
-            return Response(serializer.data)
+            return Response(serializer.data[0])
         else:
             return Response("Laon Data not found in database")
 
